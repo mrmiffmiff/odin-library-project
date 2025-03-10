@@ -36,7 +36,7 @@ main {
     padding: 0.3em;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    gap: 12px;
 }
 
 .card {
@@ -44,6 +44,30 @@ main {
     height: 200px;
     display: flex;
     flex-direction: column;
+    background-color: #ffebbb;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    padding-left: 10px;
+}
+
+.removeButton {
+    height: 20px;
+    width: 20px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-self: flex-end;
+    margin: 0.2em;
+    padding: 0;
+    background-color: red;
+}
+
+.xCircle {
+    object-fit: fill;
+}
+
+.card p {
+    margin: 0;
 }
 
 footer {

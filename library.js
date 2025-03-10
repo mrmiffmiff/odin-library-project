@@ -39,7 +39,7 @@ addBookToLibrary("example 2", "other author", 12, false);
 
 const table = document.querySelector("#books");
 
-function initialize() {
+function initializeTable() {
     for (const book of myLibrary) {
         let title = book.getTitle();
         const titleCell = document.createElement("td");
@@ -75,4 +75,4 @@ function initialize() {
     }
 }
 
-initialize();
+initializeTable();

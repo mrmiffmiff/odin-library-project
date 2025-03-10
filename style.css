@@ -5,6 +5,12 @@
         url(./assets/fonts/Oswald/Oswald-VariableFont_wght.ttf) format(truetype) tech(variations);
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 table,
 th,
 td {
@@ -24,4 +30,23 @@ header {
     background-color: #e0ffcd;
     color: #0a0307;
     font-family: "Oswald", sans-serif;
+}
+
+footer {
+    background-color: #ffcab0;
+    margin-top: auto;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
+footer p:first-of-type {
+    padding-top: 0.3em;
+}
+
+footer p:last-of-type {
+    padding-bottom: 0.3em;
 }

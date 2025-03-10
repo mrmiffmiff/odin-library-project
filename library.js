@@ -35,8 +35,6 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 addBookToLibrary("Myths from Mesopotamia", "Stephanie Dalley", 339, false);
-addBookToLibrary("example 1", "fake author", 230, true);
-addBookToLibrary("example 2", "other author", 12, false);
 
 const grid = document.querySelector("main");
 const addModal = document.querySelector(".addBook");
@@ -57,6 +55,11 @@ function initializeBook(book) {
     xButton.type = "button";
     xButton.classList.add("removeButton");
     xButton.appendChild(xIcon);
+
+    xButton.addEventListener("click", (e) => {
+        let id = xButton.parentNode.id;
+        deleteBook(id);
+    });
 
     let title = book.getTitle();
     const titleParagraph = document.createElement("p");
@@ -90,6 +93,13 @@ function initializeBook(book) {
     newCard.appendChild(readParagraph);
 
     grid.appendChild(newCard);
+}
+
+function deleteBook(id) {
+    const bIndex = myLibrary.findIndex(book => book.id === id);
+    myLibrary.splice(bIndex, 1);
+    const el = document.getElementById(id);
+    el.remove();
 }
 
 newBookForm.addEventListener("submit", (e) => {

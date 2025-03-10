@@ -11,6 +11,30 @@
 </head>
 
 <body>
+    <dialog class="addBook">
+        <form class="newBookForm">
+            <p>
+                <label for="newTitle">Title: </label>
+                <input type="text" id="newTitle" name="newTitle" autocomplete="off">
+            </p>
+            <p>
+                <label for="newAuthor">Author: </label>
+                <input type="text" id="newAuthor" name="newAuthor" autocomplete="off">
+            </p>
+            <p>
+                <label for="newPages">Page Count: </label>
+                <input type="number" id="newPages" name="newPages" min="1">
+            </p>
+            <p>
+                <label for="newRead">Read? </label>
+                <input type="checkbox" id="newRead" name="newRead">
+            </p>
+            <p>
+                <button value="cancel" formmethod="dialog" id="cancelBtn">Cancel</button>
+                <button value="submit" formmethod="dialog" id="submitBtn">Add Book</button>
+            </p>
+        </form>
+    </dialog>
     <header>
         <h1 class="pageHeader">Library Tracking</h1>
     </header>

@@ -28,6 +28,10 @@ Book.prototype.getRead = function () {
     return this.read;
 }
 
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+}
+
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
@@ -98,8 +102,16 @@ function initializeBook(book) {
 function deleteBook(id) {
     const bIndex = myLibrary.findIndex(book => book.id === id);
     myLibrary.splice(bIndex, 1);
-    const el = document.getElementById(id);
+    const el = document.querySelector("#" + CSS.escape(id));
     el.remove();
+}
+
+function switchRead(id) {
+    const book = myLibrary.find(book => book.id === id);
+    book.toggleRead();
+    const el = document.querySelector("#" + CSS.escape(id));
+    const read = el.querySelector(".read");
+    read.textContent = book.getRead() ? "Read" : "Unread";
 }
 
 newBookForm.addEventListener("submit", (e) => {

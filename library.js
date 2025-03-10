@@ -37,44 +37,7 @@ addBookToLibrary("Myths from Mesopotamia", "Stephanie Dalley", 339, false);
 addBookToLibrary("example 1", "fake author", 230, true);
 addBookToLibrary("example 2", "other author", 12, false);
 
-const table = document.querySelector("#books");
 const grid = document.querySelector("main");
-
-function initializeTable() {
-    for (const book of myLibrary) {
-        let title = book.getTitle();
-        const titleCell = document.createElement("td");
-        titleCell.classList.add("titleCell");
-        titleCell.textContent = title;
-
-        let author = book.getAuthor();
-        const authorCell = document.createElement("td");
-        authorCell.classList.add("authorCell");
-        authorCell.textContent = author;
-
-        let pages = book.getPages().toString();
-        const pagesCell = document.createElement("td");
-        pagesCell.classList.add("pagesCell");
-        pagesCell.textContent = pages;
-
-        let read = book.getRead() ? "Yes" : "No";
-        const readCell = document.createElement("td");
-        readCell.classList.add("readCell");
-        readCell.textContent = read;
-
-        let id = book.getId();
-        const newRow = document.createElement("tr");
-        newRow.classList.add("book");
-        newRow.id = id;
-
-        newRow.appendChild(titleCell);
-        newRow.appendChild(authorCell);
-        newRow.appendChild(pagesCell);
-        newRow.appendChild(readCell);
-
-        table.appendChild(newRow);
-    }
-}
 
 function initializeCards() {
     for (const book of myLibrary) {
@@ -97,7 +60,7 @@ function initializeCards() {
         authorParagraph.classList.add("author");
         authorParagraph.textContent = author;
 
-        let pages = book.getPages().toString();
+        let pages = book.getPages().toString() + " pages";
         const pagesParagraph = document.createElement("p");
         pagesParagraph.classList.add("pages");
         pagesParagraph.textContent = pages;
@@ -122,5 +85,4 @@ function initializeCards() {
     }
 }
 
-//initializeTable();
 initializeCards();

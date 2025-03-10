@@ -11,13 +11,6 @@ body {
     flex-direction: column;
 }
 
-table,
-th,
-td {
-    text-align: center;
-    border: 1px solid black;
-}
-
 .pageHeader {
     margin: 0;
 }

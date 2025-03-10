@@ -73,6 +73,16 @@ main {
     margin: 0;
 }
 
+.readArea {
+    display: flex;
+    justify-content: space-between;
+}
+
+.readButton {
+    margin-right: 10px;
+    padding: 1px;
+}
+
 footer {
     background-color: #ffcab0;
     margin-top: auto;

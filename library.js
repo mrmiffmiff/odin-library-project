@@ -81,9 +81,22 @@ function initializeBook(book) {
     pagesParagraph.textContent = pages;
 
     let read = book.getRead() ? "Read" : "Unread";
+    const readSpan = document.createElement("span");
+    readSpan.classList.add("read");
+    readSpan.textContent = read;
+    const readButton = document.createElement("button");
+    readButton.classList.add("readButton");
+    readButton.textContent = "(Un)Read";
+
+    readButton.addEventListener("click", (e) => {
+        let id = readButton.parentNode.parentNode.id;
+        switchRead(id);
+    })
+
     const readParagraph = document.createElement("p");
-    readParagraph.classList.add("read");
-    readParagraph.textContent = read;
+    readParagraph.classList.add("readArea");
+    readParagraph.appendChild(readSpan);
+    readParagraph.appendChild(readButton);
 
     let id = book.getId();
     const newCard = document.createElement("div");

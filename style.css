@@ -1,6 +1,27 @@
+@font-face {
+    font-family: "Oswald";
+    src:
+        local("Oswald"),
+        url(./assets/fonts/Oswald/Oswald-VariableFont_wght.ttf) format(truetype) tech(variations);
+}
+
 table,
 th,
 td {
     text-align: center;
     border: 1px solid black;
+}
+
+.pageHeader {
+    margin: 0;
+}
+
+header {
+    padding: 1.8em 0;
+    margin: 0 0 0.3em;
+    display: flex;
+    justify-content: center;
+    background-color: #e0ffcd;
+    color: #0a0307;
+    font-family: "Oswald", sans-serif;
 }

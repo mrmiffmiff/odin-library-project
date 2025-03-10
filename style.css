@@ -32,6 +32,20 @@ header {
     font-family: "Oswald", sans-serif;
 }
 
+main {
+    padding: 0.3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    border: 5px solid black;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
 footer {
     background-color: #ffcab0;
     margin-top: auto;

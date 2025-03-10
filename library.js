@@ -46,6 +46,7 @@ const newAuthor = document.querySelector("#newAuthor");
 const newPages = document.querySelector("#newPages");
 const newRead = document.querySelector("#newRead");
 const newBookForm = document.querySelector(".newBookForm");
+const showFormButton = document.querySelector("#showForm");
 
 function initializeBook(book) {
     const xIcon = document.createElement("img");
@@ -106,6 +107,10 @@ newBookForm.addEventListener("submit", (e) => {
     }
     addModal.close();
 });
+
+showFormButton.addEventListener("click", (e) => {
+    addModal.showModal();
+})
 
 function initializeCards() {
     for (const book of myLibrary) {

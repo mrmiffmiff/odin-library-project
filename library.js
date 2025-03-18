@@ -11,48 +11,52 @@ const newRead = document.querySelector("#newRead");
 const newBookForm = document.querySelector(".newBookForm");
 const showFormButton = document.querySelector("#showForm");
 
-// Constructor for book, followed by prototype getter methods (and one setter-type method)
-function Book(title, author, pages, read) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+// Book class
+class Book {
+    constructor(title, author, pages, read) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-Book.prototype.getId = function () {
-    return this.id;
-}
+    // These could have been getters but I had written them before I understood how those actually worked in JS
+    // Thus, they are methods, so I don't make old code bad. May still go back and refactor further into getters...
 
-Book.prototype.getTitle = function () {
-    return this.title;
-}
+    getId = function () {
+        return this.id;
+    }
 
-Book.prototype.getAuthor = function () {
-    return this.author;
-}
+    getTitle = function () {
+        return this.title;
+    }
 
-Book.prototype.getPages = function () {
-    return this.pages;
-}
+    getAuthor = function () {
+        return this.author;
+    }
 
-Book.prototype.getRead = function () {
-    return this.read;
-}
+    getPages = function () {
+        return this.pages;
+    }
 
-Book.prototype.toggleRead = function () {
-    this.read = !this.read;
-}
+    getRead = function () {
+        return this.read;
+    }
 
-// Personally I'd like to make this a static method on Book but that may need to wait for some knowledge on Class
-function addBookToLibrary(title, author, pages, read) {
-    const newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-    return newBook;
+    toggleRead = function () {
+        this.read = !this.read;
+    }
+
+    static addBookToLibrary(title, author, pages, read) {
+        const newBook = new Book(title, author, pages, read);
+        myLibrary.push(newBook);
+        return newBook;
+    }
 }
 
 // One sample book for reference
-addBookToLibrary("Myths from Mesopotamia", "Stephanie Dalley", 339, false);
+Book.addBookToLibrary("Myths from Mesopotamia", "Stephanie Dalley", 339, false);
 
 /* Wanted to make this fully reusable so we could add single books individually.
    Presumably this could be cleaned up into further nested functions; may still do that. */
@@ -149,7 +153,7 @@ newBookForm.addEventListener("submit", (e) => {
         let pagesString = formData.get("newPages")
         let pages = parseInt(pagesString);
         let read = formData.has("newRead");
-        const book = addBookToLibrary(title, author, pages, read);
+        const book = Book.addBookToLibrary(title, author, pages, read);
         initializeBook(book);
         newBookForm.reset();
     }
